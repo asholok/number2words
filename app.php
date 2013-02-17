@@ -23,7 +23,7 @@ class NumToWords
 		$endings = array('0' => ' ', '1' => 'и ', '2' => 'ів ', '3' => 'ня ', '4' => 'ні ', '5' => 'ень ', '6' => 'ка ', '7' => 'ки ', '8' => 'ок ','9' => 'a ', '10' => 'і ');
 		$startNum = count($arr)-1;
 		$key = '';
-		for ($y=$startNum; $y >= 0 ; $y--) {
+		for ($y=$startNum; $y >= 0 ; $y--) {//start convert from biger to smaler
 			
 		$rev 	 						=	 strrev($arr[$y]);
 		$lessThanHun 					= 	 $rev % 100;
@@ -76,7 +76,7 @@ class NumToWords
 						}		
 				}
 			
-				if($y>=2){// if num > 1 mln
+				if($y>=2){// name num > 1 mln
 					if($teens!=1){
 						if($nums==1){
 
@@ -90,7 +90,7 @@ class NumToWords
 							$key 		= 	 $key.$mlnName[$y].$endings[2];
 					}
 
-				}if ($y==1) {
+				}if ($y==1) {// thuosend plural names
 					if($teens!=1){
 						if($nums==1){
 
@@ -111,7 +111,7 @@ class NumToWords
 				}
 
 			} // Here ends condition if block $arr[$y] == 0
-		// adding name of currensy
+		// adding currensy plural names
 			if ($y==0) {
 				if($teens!=1){
 					if($nums==1){
