@@ -57,28 +57,29 @@ class NumToWords
 						$key			= 	 $key.$toTwenty[$lessThanHun];
 						}		
 				}
-				if($y>=2){// name num > 1 mln
-					if($teens!=1){
-						if($nums==1){
+				if ($y>=2) {// name num > 1 mln
+					if ($teens!=1) {
+						if ($nums==1) {
 							$key		= 	 $key.$mlnName[$y].$endings[0];
-						}elseif($nums>1 && $nums<5){
+						} elseif($nums>1 && $nums<5) {
 							$key		= 	 $key.$mlnName[$y].$endings[1];
-						}else{
+						} else {
 							$key		= 	 $key.$mlnName[$y].$endings[2];
 						}
-					}else{
-							$key 		= 	 $key.$mlnName[$y].$endings[2];
+					} else {
+						$key	 		= 	 $key.$mlnName[$y].$endings[2];
 					}
-				}if ($y==1) {// thuosend plural names
-					if($teens!=1){
-						if($nums==1){
-						$key 			= 	 $key.$thousName.$endings[9];
-						}elseif($nums>1 && $nums<5){
-						$key 			= 	 $key.$thousName.$endings[10];
-						}else{
-						$key 			= 	 $key.$thousName.$endings[0];
+				} 
+				if ($y==1) {// thuosend plural names
+					if ($teens!=1) {
+						if ($nums==1) {
+							$key 		= 	 $key.$thousName.$endings[9];
+						} elseif ($nums>1 && $nums<5) {
+							$key 		= 	 $key.$thousName.$endings[10];
+						} else {
+							$key 		= 	 $key.$thousName.$endings[0];
 						}
-					}else{
+					} else {
 						$key 			= 	 $key.$thousName.$endings[0];
 					}
 				}
@@ -94,34 +95,35 @@ class NumToWords
 						$key 			= 	 $key.$uahName.$endings[5];
 					}
 				} else {
-						$key 			= 	 $key.$uahName.$endings[5];
+					$key	 			= 	 $key.$uahName.$endings[5];
 				}
 			}			
 		}
 
 	// coins quantity 
 		if (strlen($firsrS[1])==1) {//one digit protection (0.5 == "fifty" not "five")
-						$key			= 	 $key.", ".$tens[$firsrS[1]];
-						$key 			= 	 $key.$coinName.$endings[8];// coins plural names
+			$key						= 	 $key.", ".$tens[$firsrS[1]];
+			$key 						= 	 $key.$coinName.$endings[8];// coins plural names
 		} else {
 			if ($firsrS[1] >=20) {
 
-						$numOfTens		= 	 floor($firsrS[1]/10);
-						$key			=	 $key.", ".$tens[$numOfTens];
-						$nums 			= 	 $firsrS[1] % 10;
-						$key			=	 $key.$toTwenty[$nums];
+				$numOfTens				= 	 floor($firsrS[1]/10);
+				$key					=	 $key.", ".$tens[$numOfTens];
+				$nums 					= 	 $firsrS[1] % 10;
+				$key					=	 $key.$toTwenty[$nums];
 				
 			} else {
-						$withOutZero	=	 ($firsrS[1]/10)*10;
-						$key			= 	 $key.", ".$toTwenty[$withOutZero];
+				$withOutZero			=	 ($firsrS[1]/10)*10;
+				$key					= 	 $key.", ".$toTwenty[$withOutZero];
 			}
 	
 			if ($firsrS[1]==1) {// coins plural names
-						$key 			= 	 $key.$coinName.$endings[6];
+				$key 					= 	 $key.$coinName.$endings[6];
+
 				} elseif ($firsrS[1]>1 && $firsrS[1]<5) {
-						$key 			= 	 $key.$coinName.$endings[7];
+					$key 				= 	 $key.$coinName.$endings[7];
 				} else {
-						$key 			= 	 $key.$coinName.$endings[8];
+					$key 				= 	 $key.$coinName.$endings[8];
 			}
 
 		}
